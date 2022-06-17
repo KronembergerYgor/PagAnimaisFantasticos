@@ -33,6 +33,6 @@ imagensLista.addEventListener('click', (event) => {
 const linkExterno = document.querySelector('a[href^="http"]');
 
 linkExterno.addEventListener('click', (event) => {
-    event.preventDefault();
+    event.preventDefault();//Prevenindo padrão
 
 })
