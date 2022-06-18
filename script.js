@@ -1,38 +1,34 @@
-//Eventos
+//Navegação por tabs
 
-const img = document.querySelector('img');
+const tabMenu = document.querySelectorAll('.js-tabmenu li');
+const tabContent = document.querySelectorAll('.js-tabcontent section');
+
+if(tabMenu.length > 0){
+
+    tabContent[0].classList.add('ativo');
+
+    function activeTab(index){
+        tabContent.forEach((content) =>{
+            content.classList.remove('ativo');
+        })
+        tabContent[index].classList.add('ativo');
+    
+    }
 
 
-//criando callback separada da função
-function callback(event){
-  //  console.log(event);
+    tabMenu.forEach((menu, index) => {
+        menu.addEventListener('click', () => {
+            activeTab(index);
+        })
+    })
+
 }
 
-img.addEventListener('click', callback);
-
-//criando callback direto no addEventListener
-
-img.addEventListener('click', (event) =>{
-   
-//    console.log(event)
-    
-})
-
-const imagensLista = document.querySelector('.animais-lista');
 
 
-imagensLista.addEventListener('click', (event) => {
-
-    console.log(event.currentTarget); //Pai da tag
-    console.log(event.target); //propria tag
-    console.log(event.type); //tipo de evento
 
 
-})
 
-const linkExterno = document.querySelector('a[href^="http"]');
 
-linkExterno.addEventListener('click', (event) => {
-    event.preventDefault();//Prevenindo padrão
 
-})
+
