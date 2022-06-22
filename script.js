@@ -1,28 +1,55 @@
-//Navegação por tabs
+function initiTabNav(){
 
-const tabMenu = document.querySelectorAll('.js-tabmenu li');
-const tabContent = document.querySelectorAll('.js-tabcontent section');
+    //Navegação por tabs
 
-if(tabMenu.length > 0){
+    const tabMenu = document.querySelectorAll('.js-tabmenu li');
+    const tabContent = document.querySelectorAll('.js-tabcontent section');
 
-    tabContent[0].classList.add('ativo');
+    if(tabMenu.length > 0){
 
-    function activeTab(index){
-        tabContent.forEach((content) =>{
-            content.classList.remove('ativo');
+        tabContent[0].classList.add('ativo');
+
+        function activeTab(index){
+            tabContent.forEach((content) =>{
+                content.classList.remove('ativo');
+            })
+            tabContent[index].classList.add('ativo');
+        
+        }
+
+
+        tabMenu.forEach((menu, index) => {
+            menu.addEventListener('click', () => {
+                activeTab(index);
+            })
         })
-        tabContent[index].classList.add('ativo');
-    
+
     }
-
-
-    tabMenu.forEach((menu, index) => {
-        menu.addEventListener('click', () => {
-            activeTab(index);
-        })
-    })
-
 }
+
+initiTabNav();
+
+
+
+function initAccordion(){
+
+    const accordionList = document.querySelectorAll('.js-accordion dt');
+
+    if(accordionList.length > 0){
+
+        function activeAccordion(event){
+            this.classList.toggle('ativo')
+            this.nextElementSibling.classList.toggle('ativo'); //pega o elemento nextElementSibling a seguir do selecionado
+
+        }
+
+        accordionList.forEach((item) => {
+            item.addEventListener('click', activeAccordion);
+        })
+    }
+}
+
+initAccordion();
 
 
 
