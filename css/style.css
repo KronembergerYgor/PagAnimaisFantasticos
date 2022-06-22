@@ -296,13 +296,9 @@ body{
 }
 
 .js-accordion dt.ObsItens::before{
-
     width: 0;
     height: 0;
     cursor:auto ;
- 
-    
-
 
 }
 
