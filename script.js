@@ -81,6 +81,47 @@ function Scroll(){
 
 Scroll();
 
+function animationScroll(){
+
+    const sections = document.querySelectorAll('.js-scroll')
+
+    function animaScroll(){
+        sections.forEach((section) => {
+            
+            const sectionTop = section.getBoundingClientRect().top; // retorna cordenadas do elemento em relação a pagina getBoundingClientRect()
+            
+            if(sectionTop < 0){
+                section.classList.add('ativo')
+            }
+
+        })
+    }
+
+    window.addEventListener('scroll', animaScroll) // window fala com a janela do browser (não com a pagina)
+
+}
+
+function transitionScroll(){
+
+    const sectionList = document.querySelectorAll('.js-animaScroll');
+    const windowMetade = window.innerHeight * 0.6; // Pegando o tamanho da tela do usuario
+
+
+    function transitionAnimation(){
+        sectionList.forEach((sectionItem) =>{
+            const sectionTop = sectionItem.getBoundingClientRect().top - windowMetade;
+            if(sectionTop < 0){
+                sectionItem.classList.add('ativo');
+            }
+        })
+    }
+    transitionAnimation();
+    window.addEventListener('scroll', transitionAnimation);
+
+}
+
+transitionScroll();
+
 
 
 
